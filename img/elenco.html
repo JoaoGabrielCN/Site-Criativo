@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Jogos</title>
+    <style>
+        /* Estilos para a página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendário de Jogos</h1>
+    <div>
+        <button id="mesAnterior">Mês Anterior</button>
+        <span id="mesAno">Setembro 2023</span>
+        <button id="proxMes">Próximo Mês</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Local</th>
+            </tr>
+        </thead>
+        <tbody id="jogos">
+            <!-- Jogos serão adicionados aqui dinamicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        // Dados fictícios dos jogos
+        const jogos = [
+            { data: "2023-09-05", horario: "19:00", local: "Estádio A" },
+            { data: "2023-09-12", horario: "20:30", local: "Estádio B" },
+            { data: "2023-09-20", horario: "18:45", local: "Estádio C" },
+            { data: "2023-10-02", horario: "19:15", local: "Estádio D" }
+        ];
+
+        let mesAtual = 9; // Setembro é o mês inicial
+
+        // Função para exibir os jogos do mês atual
+        function exibirJogos() {
+            const mesAno = document.getElementById("mesAno");
+            const jogosTbody = document.getElementById("jogos");
+
+            // Atualiza o cabeçalho com o mês e ano atual
+            mesAno.textContent = `Setembro 2023`;
+
+            // Limpa a lista de jogos
+            jogosTbody.innerHTML = "";
+
+            // Filtra os jogos para o mês atual (considerando apenas o mês)
+            const jogosDoMes = jogos.filter(jogo => new Date(jogo.data).getMonth() + 1 === mesAtual);
+
+            // Adiciona os jogos ao calendário
+            jogosDoMes.forEach(jogo => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${jogo.data}</td>
+                    <td>${jogo.horario}</td>
+                    <td>${jogo.local}</td>
+                `;
+                jogosTbody.appendChild(tr);
+            });
+        }
+
+        // Adiciona eventos de clique para mudar o mês
+        document.getElementById("mesAnterior").addEventListener("click", () => {
+            mesAtual--;
+            if (mesAtual < 1) mesAtual = 12;
+            exibirJogos();
+        });
+
+        document.getElementById("proxMes").addEventListener("click", () => {
+            mesAtual++;
+            if (mesAtual > 12) mesAtual = 1;
+            exibirJogos();
+        });
+
+        // Exibe os jogos do mês atual quando a página carrega
+        window.onload = exibirJogos;
+    </script>
+</body>
+</html>
