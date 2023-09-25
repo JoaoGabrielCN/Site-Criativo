@@ -1,0 +1,80 @@
+#tabela-jogos {
+    background-color: #fff;
+    margin: 0 auto; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    text-align: center;
+    color:black; 
+    font-family: Arial, sans-serif; 
+}
+
+#tabela-jogos th {
+    background-color: #0d227e;
+    color: antiquewhite;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#tabela-jogos th,
+#tabela-jogos td {
+    padding: 10px;
+}
+
+#tabela-jogos tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tabela-jogos td {
+    font-size: 16px;
+}
+
+#mes-anterior,
+#proximo-mes {
+    background-color: #0d227e;
+    color: antiquewhite;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#mes-anterior:hover,
+#proximo-mes:hover {
+    background-color: #092066;
+}
+
+#mes-ano-atual{
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    #tabela-jogos {
+        padding: 10px;
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    #tabela-jogos th {
+        font-size: 16px;
+    }
+
+    #tabela-jogos td {
+        font-size: 14px;
+    }
+
+    #mes-anterior,
+    #proximo-mes {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #mes-ano-atual {
+        font-size: 24px;
+    }
+}
+
