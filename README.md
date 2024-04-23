@@ -1,1 +1,1 @@
-# responsividade
+Site feito com HTML, CSS e JavaScript, com tema sobre o clube de futebol Cruzeiro. Este site foi desenvolvido em função de um trabalho da disciplina de Aplicações para Web 1 no primeiro ano do curso de informática no CEFET-MG.
